@@ -1,3 +1,5 @@
+package patikaProjeler;
+
 import java.util.Scanner;
 
 public class UcgenAlani {
