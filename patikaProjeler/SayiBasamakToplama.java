@@ -1,7 +1,7 @@
 package patikaProjeler;
 import java.util.Scanner;
 
-public class ArmstrongSayi {
+public class SayiBasamakToplama {
     public static void main(String[] args) {
         Scanner inp = new Scanner(System.in);
 
