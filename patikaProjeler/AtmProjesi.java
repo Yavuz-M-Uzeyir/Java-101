@@ -7,6 +7,7 @@ public class AtmProjesi {
         String kullaniciAdi, sifre;
         int hak = 3;
         int bakiye = 1500;
+        int secim;
 
         while(hak != 0){
             System.out.print("Kullanıcı adı giriniz: ");
@@ -17,12 +18,14 @@ public class AtmProjesi {
         if(kullaniciAdi.equals("1") && sifre.equals("1")){
 
             System.out.println("Başarıyla giriş yaptınız.");
-            System.out.print(  "1- Para yatırma\n" + 
-                               "2- Para çekme\n" + 
-                               "3- Bakiye sorgulama\n" + 
-                               "4- Çıkış yapma\n" + 
-                               "Yapmak istediğiniz işlemi seçiniz: ");
-            int secim = inp.nextInt();
+            
+            do{
+                System.out.print(   "1- Para yatırma\n" + 
+                                    "2- Para çekme\n" + 
+                                    "3- Bakiye sorgulama\n" + 
+                                    "4- Çıkış yapma\n" + 
+                                    "Yapmak istediğiniz işlemi seçiniz: ");
+                secim = inp.nextInt();
 
             switch(secim){
                 case 1:
@@ -35,7 +38,7 @@ public class AtmProjesi {
                 System.out.print("Çekmek istediğiniz tutarı giriniz: ");
                 int cek = inp.nextInt();
                 if(cek > bakiye){
-                    System.out.print("Hesabınızda yeterli miktarda para yoktur tekrar deneyiniz!");
+                    System.out.println("Hesabınızda yeterli miktarda para yoktur tekrar deneyiniz!");
 
                 } else {
                     bakiye -= cek;
@@ -43,15 +46,30 @@ public class AtmProjesi {
                 break;
 
                 case 3:
-                System.out.print("Mevcut bakiyeniz : " + bakiye);
+                System.out.println("Mevcut bakiyeniz : " + bakiye);
                 break;
                 
+                case 4:
+                break;
+
+                default:
+                System.out.println("Geçersiz seçim yaptınız tekrar deneyiniz. ");
+
+            }
+
+            }while( secim != 4);{
+                System.out.print("Tekrar görüşmek üzere.");
             }
                              
             break;
             
         } else {
             System.out.println("Kullanıcı adı veya şifre hatalı tekrar deneyiniz kalan hakkınız " + --hak);
+            switch(hak){
+                case 0:
+                System.out.print("Hesabınız bloke olmuştur lütfen bankayla iletişime geçiniz! ");
+                break;
+            }
             
         }
         }
