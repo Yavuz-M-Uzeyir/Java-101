@@ -1,4 +1,4 @@
-package patikaProjeler.oop.OgrenciBilgiSistemi;
+package patikaProjeler.oop.ogrenciBilgiSistemi;
 
 public class Student {
     Course c1;
