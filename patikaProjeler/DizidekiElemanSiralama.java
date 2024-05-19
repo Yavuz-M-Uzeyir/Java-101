@@ -14,7 +14,7 @@ public class DizidekiElemanSiralama {
         int index = 0;
         System.out.println("Dizinin elemanlarını giriniz : ");
         for (int i = 0; i < list.length; i++) {
-            System.out.print(i + 1 + ".Elemanı : ");
+            System.out.print(i + 1 + ". Elemanı : ");
             int element = inp.nextInt();
             list[index++] = element;
         }
