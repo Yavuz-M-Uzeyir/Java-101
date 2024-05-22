@@ -1,5 +1,7 @@
 package patikaProjeler;
 
+import java.util.Scanner;
+
 public class PalindromKelime {
 
     static boolean isPalindrome(String str) {
@@ -20,7 +22,12 @@ public class PalindromKelime {
     }
 
     public static void main(String[] args) {
-        System.out.println(isPalindrome("abs"));
+        Scanner inp = new Scanner(System.in);
+        
+        System.out.print("Kelimeyi giriniz : ");
+        String pWord = inp.nextLine();
+
+        System.out.println(isPalindrome(pWord));
     }
 
 }
