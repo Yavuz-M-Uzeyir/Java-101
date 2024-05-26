@@ -21,8 +21,6 @@ public class MineSweeper {
 
         if (line >= 2 && column >= 2) {
 
-            this.selectLine = -1;
-            this.selectColumn = -1;
             this.line = line;
             this.column = column;
             this.mine = (this.line * this.column) / 4;
@@ -52,31 +50,32 @@ public class MineSweeper {
                 i++;
             }
         }
-
     }
 
     boolean isSelectMine() {
 
-        if (this.selectLine == this.randomLine || this.selectColumn == this.randomColumn) {
-            return true;
-        }
-        return false;
-
+        return this.map[selectLine][selectColumn].equals("*");
     }
 
     void play() {
-
-        System.out.println("radom line "+this.randomLine);
-        System.out.println("random colon "+this.randomColumn);
 
         plantMine();
         printBoard(map);
         System.out.println("<<<Mayın tarlası oyununa hoş geldiniz>>>");
         while (!isSelectMine()) {
+
+            printBoard(board);
             System.out.print("Satır giriniz : ");
             this.selectLine = inp.nextInt();
             System.out.print("Stün giriniz : ");
             this.selectColumn = inp.nextInt();
+
+            if (isSelectMine()) {
+                System.out.println("Mayına bastınız!" + "\n" + "Mayınların konumu");
+                printBoard(map);
+            } else {
+                
+            }
         }
     }
 
