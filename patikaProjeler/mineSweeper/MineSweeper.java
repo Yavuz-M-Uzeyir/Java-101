@@ -6,16 +6,12 @@ import java.util.Scanner;
 public class MineSweeper {
 
     Scanner inp = new Scanner(System.in);
-    int line;
-    int column;
-    int selectLine;
-    int selectColumn;
-    int randomLine;
-    int randomColumn;
-    int mine;
+    Random rand = new Random();
     String[][] board;
     String[][] map;
-    Random rand = new Random();
+    int line;
+    int column;
+    int mine;
 
     MineSweeper(int line, int column) {
 
@@ -39,42 +35,37 @@ public class MineSweeper {
         }
     }
 
-    void plantMine() {
-
-        int i = 0;
-        while (i < this.mine) {
-            this.randomLine = rand.nextInt(this.line);
-            this.randomColumn = rand.nextInt(this.column);
-            if (this.map[randomLine][randomColumn].equals("-")) {
-                this.map[randomLine][randomColumn] = "*";
-                i++;
-            }
-        }
-    }
-
-    boolean isSelectMine() {
-
-        return this.map[selectLine][selectColumn].equals("*");
-    }
-
     void play() {
 
         plantMine();
-        printBoard(map);
-        System.out.println("<<<Mayın tarlası oyununa hoş geldiniz>>>");
-        while (!isSelectMine()) {
 
-            printBoard(board);
-            System.out.print("Satır giriniz : ");
-            this.selectLine = inp.nextInt();
-            System.out.print("Stün giriniz : ");
-            this.selectColumn = inp.nextInt();
+    }
 
-            if (isSelectMine()) {
-                System.out.println("Mayına bastınız!" + "\n" + "Mayınların konumu");
-                printBoard(map);
-            } else {
-                
+    boolean isSelectTrue() {
+
+        System.out.print("Satır giriniz : ");
+        int line = inp.nextInt();
+
+        System.out.print("Stün seçiniz : ");
+        int column = inp.nextInt();
+
+        if ((line < 0 || line >= this.line) || (column < 0 || column >= this.column)) {
+            return true;
+        }
+        return false;
+    }
+
+    void plantMine() {
+
+        int randomLine;
+        int randomColumn;
+        int i = 0;
+        while (i < this.mine) {
+            randomLine = rand.nextInt(this.line);
+            randomColumn = rand.nextInt(this.column);
+            if (this.map[randomLine][randomColumn].equals("-")) {
+                this.map[randomLine][randomColumn] = "*";
+                i++;
             }
         }
     }
