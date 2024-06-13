@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Library {
 
+    Book book;
     ArrayList<Book> books;
 
     Library() {
@@ -24,8 +25,12 @@ public class Library {
         }
     }
 
-    public void updateBook(String isbnNo) {
-
+    public String updateBook(String isbnNo) {
+        findBook(isbnNo);
+        if (book.isbnNo.equals(isbnNo)) {
+            return books.toString();
+        }
+        return null;
     }
 
     public Book findBook(String isbnNo) {
