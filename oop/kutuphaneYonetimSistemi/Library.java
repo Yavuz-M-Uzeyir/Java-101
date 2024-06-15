@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 public class Library {
 
-    Book book;
     ArrayList<Book> books;
 
     Library() {
         this.books = new ArrayList<>();
+        books.add("s");
     }
 
     public void addBook(Book book) {
@@ -25,17 +25,9 @@ public class Library {
         }
     }
 
-    public String updateBook(String isbnNo) {
-        findBook(isbnNo);
-        if (book.isbnNo.equals(isbnNo)) {
-            return books.toString();
-        }
-        return null;
-    }
-
     public Book findBook(String isbnNo) {
         for (Book book : books) {
-            if (book.isbnNo.equals(isbnNo)) {
+            if (book.getIsbnNo().contains(isbnNo)) {
                 return book;
             }
         }

@@ -15,11 +15,29 @@ public class Book {
     }
 
     public String toString() {
-        return "Kitap{" +
+        return "Kitap Bilgileri {" +
                 "  Adı: " + this.name +
                 ", Yazarı: " + this.author +
                 ", Basım yılı: " + this.year +
                 ", İsbnNo: " + this.isbnNo +
                 "  }";
     }
+
+    public String getIsbnNo() {
+        return this.isbnNo;
+    }
+
+    public String getYear() {
+        return this.year;
+    }
+
+    public String getAuthor() {
+        return this.author;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+
 }
